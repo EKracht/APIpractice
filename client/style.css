@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+}
+
+#middleCont {
+  margin-top: 10px;
+}
+
+#bottomCont {
+  margin-top: 40px;
+}
+
+input {
+  height: 38px;
+  width: 220px;
+}
+
+button {
+  height: 47px;
+  width: 100px;
+}
