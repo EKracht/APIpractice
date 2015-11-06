@@ -1,4 +1,3 @@
-
 module.exports = {
 
   cube: (n) => {return Math.pow(n, 3)},
@@ -33,7 +32,7 @@ module.exports = {
     return quotient;
   },
   
-  counter: (str) => {
+  sentenceCounter: (str) => {
     var wordsArr = str.split(" ");
     var words = wordsArr.length;
     var charArr = str.split("");

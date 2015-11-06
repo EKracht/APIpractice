@@ -1,6 +1,6 @@
 'use strict';
 
-var functions = require('./utilMath');
+var functions = require('./util');
 var http = require('http');
 var md5 = require('md5');
 
@@ -39,20 +39,21 @@ var server = http.createServer(function(req, res){
           break;
         case 'divide':
           var nums = params.slice(3);
-          var quotient = parseFloat(functions.divide(nums)).toFixed(2);
+          var quotient = parseFloat(functions.divide(nums)).toFixed(5);
           res.write(`the quotient is ${quotient}\n`);
           break;
       } 
       break; 
     case 'gravatar':
       var email = params.slice(2);
-      var hashEmail = md5(email[0]);
+      var emailLowerCase = email[0].toLowerCase();
+      var hashEmail = md5(emailLowerCase);
       res.write('Your gravatar email is: http://www.gravatar.com/avatar/' + hashEmail + "\n");
       break;
     case 'sentence':
       var sentenceCoded = params.slice(2);
       var sentence = decodeURI(sentenceCoded[0]);
-      var sentenceInfo = JSON.stringify(functions.counter(sentence));
+      var sentenceInfo = JSON.stringify(functions.sentenceCounter(sentence));
       res.write(sentenceInfo + "\n");
       break;
     default:
